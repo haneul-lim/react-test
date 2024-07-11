@@ -7,17 +7,8 @@ function App() {
   return (
     <>
         <Lighter />
-        <Lighter />
-        <Lighter />
-        <Lighter />
-        <Lighter />
-        <Lighter />
-        <Lighter />
-        <Lighter />
-        <Lighter />
-        <Lighter />
-        {/*<Counter />*/}
-        {/*<Register />*/}
+        <Counter />
+        <Register />
     </>
   )
 }
