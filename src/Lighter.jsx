@@ -2,29 +2,25 @@ import {useState} from 'react'
 
 function Lighter() {
 
-    const [light, setLight] = useState("OFF");
-    const [toggle, setToggle] = useState("켜기");
-    const [color, setColor] = useState("gray");
+    const [isLightOn, setIsLightOn] = useState(false);
 
-    const clickLightButton = () => {
-        setLight((light) =>
-            light === "OFF" ? light = "ON" : light = "OFF"
-        );
-        setToggle((toggle) =>
-            toggle === "켜기" ? toggle = "끄기" : toggle = "켜기"
-        );
-        setColor((color) =>
-            color === "gray" ? color = "yellow" : color = "gray"
-        );
+    const clickLightBtn = () => {
+        setIsLightOn((prevIsLightOn) => !isLightOn);
+    };
+
+    const elements = {
+        light: isLightOn ? 'OFF' : 'ON',
+        toggle: isLightOn ? '켜기' : '끄기',
+        color: isLightOn ? 'gray' : 'yellow'
     }
 
     return (
         <span>
             <h1>나는 전구</h1>
             <h1>
-                <span style={{backgroundColor: color}}>{light}</span>
+                <span style={{backgroundColor: elements.color}}>{elements.light}</span>
             </h1>
-            <button onClick={clickLightButton}>전구 {toggle}</button>
+            <button onClick={clickLightBtn}>전구 {elements.toggle}</button>
         </span>
     );
 }
